@@ -17,6 +17,17 @@ function makeRows(rows, cols) {
 
 makeRows(16, 16);
 
+// add an event listener for each time mouse enters and leaves a grid item
+const gridItems = document.querySelectorAll('.grid-item');
+console.log(gridItems);
+gridItems.forEach(gridItem => gridItem.addEventListener('mouseenter', changeColor));
+gridItems.forEach(gridItem => gridItem.addEventListener('mouseleave', changeColor));
+
+// change the background color of the grid item
+function changeColor(e) {
+  e.target.style.backgroundColor = 'black';
+}
+
 // create a grid of divs
 function createGrid(size) {
   for (let i = 0; i < size * size; i++) {
