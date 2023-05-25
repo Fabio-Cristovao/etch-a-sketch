@@ -15,7 +15,7 @@ function makeRows(rows, cols) {
   };
 }
 
-makeRows(16, 16);
+makeRows(100, 100);
 
 // add an event listener for each time mouse enters and leaves a grid item
 const gridItems = document.querySelectorAll('.grid-item');
