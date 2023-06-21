@@ -1,6 +1,7 @@
 
 const siteContainer = document.querySelector('.container')
 const submitButton = document.querySelector(".submit-button");
+let blackColorBtn = document.querySelector(".black");
 let randomColorBtn = document.querySelector(".random");
 let clearBtn = document.querySelector('.clear');
 let gridContainer = document.createElement('div');
@@ -10,8 +11,8 @@ console.log(submitButton);
 console.log(input);
 
 submitButton.addEventListener('click', makeRows, false);
-
-randomColorBtn.addEventListener('click', ChangeRandomColor, false)
+blackColorBtn.addEventListener('click', changeColorBlack, false);
+randomColorBtn.addEventListener('click', changeRandomColor, false);
 clearBtn.addEventListener('click', clearGameContainer, false);
 
 function makeRows(e) {
@@ -36,19 +37,7 @@ function makeRows(e) {
   };
 }
 
-function changeColorBlack(e) {
-  e.target.style.backgroundColor = 'black';
-}
 
-function ChangeRandomColor(e) {
-  console.log('rainbow button clicked');
-  let gridItems = document.querySelectorAll('.grid-item');
-  gridItems.forEach(item => {
-    item.addEventListener('mouseenter', changeRandomColor, false)
-    console.log(item);
-  })
-  console.log();
-};
 
 function clearColor(e) {
   e.target.style.backgroundColor = 'white';
@@ -59,12 +48,23 @@ function clearGameContainer(e) {
   makeRows(e);
 };
 
+function changeColorBlack() {
+  let gridItems = document.querySelectorAll('.grid-item');
+  gridItems.forEach(item => {
+    item.addEventListener('mouseenter', getBlackColor, false)
+  })
+}
+
 function changeRandomColor() {
   console.log('function executed!');
   let gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach(item => {
     item.addEventListener('mouseenter', getRandomColor, false)
   })
+}
+
+function getBlackColor(e) {
+  e.target.style.backgroundColor = 'black'
 }
 
 function getRandomColor(e) {
@@ -86,6 +86,9 @@ function chooseRandomColor() {
   console.log(randomColor);
   return colors[randomColor];
 }
+
+
+
 
 
 
