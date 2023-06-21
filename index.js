@@ -1,16 +1,12 @@
-// build a grid of 16 x 16 divs
 
-// create a container div
-
-const siteContainer = document.querySelector('.site-container')
+const siteContainer = document.querySelector('.container')
+const submitButton = document.querySelector(".submit-button");
+let clearBtn = document.querySelector('.clear');
 let gridContainer = document.createElement('div');
 siteContainer.appendChild(gridContainer);
 const input = document.querySelector(".input");
-const submitButton = document.querySelector(".submit-button");
 console.log(submitButton);
 console.log(input);
-
-// identify the submit button to make call the function with the desired number of cells
 
 function makeRows(e) {
   e.preventDefault();
@@ -35,26 +31,31 @@ function makeRows(e) {
   };
   const gridItems = document.querySelectorAll('.grid-item');
   gridItems.forEach(gridItem => gridItem.addEventListener('mouseenter', changeColor, false));
-
-
-
-
-
-
 }
 
 submitButton.addEventListener('click', makeRows, false);
+clearBtn.addEventListener('click', clearGameContainer, false);
 
-// add an event listener for each time mouse enters and leaves a grid item
-
-
-// change the background color of the grid item
 function changeColor(e) {
-  console.log("cell entered");
   e.target.style.backgroundColor = 'black';
 }
 
-// create a grid of 16 x 16 divs
+function clearColor(e) {
+  e.target.style.backgroundColor = 'white';
+}
+
+function clearGameContainer(e) {
+  console.log(clearBtn);
+  makeRows(e);
+
+};
+
+
+
+
+
+
+
 
 
 
